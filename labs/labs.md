@@ -226,7 +226,7 @@ Output record format:
 03-22 City name 
 23-30 City population 
 
-# Lab 28: Set up data sets for an application developer 
+## Lab 28: Set up data sets for an application developer 
 
 A new software developer has joined your company. She will be working as a software engineer on a team that supports a mainframe-based product. She will need certain data sets created under her z/OS userid:
 
@@ -254,5 +254,19 @@ DEV.JCL             JOBCARD         (a JOB card with appropriate settings for ou
 Make good use of Ansible features such as loops and variables, and factor out repetitive tasks, to keep the playbook clean and understandable. That is the main point of the exercise - the technical details are already familiar to you by now.
 
 Note that the older format for library-type data sets, the PDS, is supported for backward compatibility. It's preferable to use the PDSE format for these libraries.
+
+## Lab 29: Collect z/OS System Information 
+
+Develop a playbook that performs the following tasks:
+
+- Query the z/OS node to retrieve static information from subsets ipl, cpu, iodf, and sys. 
+- Display the results.
+- Find all the active jobs that are started tasks. Hint: job_class will be "STC".
+- Display the results. 
+- List the names of the members in the SYS.PARMLIB data set.
+- Display the results.
+
+This lab exercise doesn't provide step by step instructions. It only states the desired outcome. By this point you know how to find the IBM z/OS documentation, the Ansible documentation, IBM's Ansible examples on Github, the source code for the ibm_zos_core collection on Github, the samples provided in the course repo, reusable patterns in your own playbooks, LLM assistants, class mates you can ask, Internet searches, and other resources to discover the details of how to accomplish the outcome. You know how to log on to the z/OS instance directly and try out TSO commands, look at SDSF output, find data set names under a given high-level qualifier, and other actions to help yourself understand what to query for in your Ansible playbook, and how the results are structured. 
+
 
 
