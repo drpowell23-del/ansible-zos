@@ -201,8 +201,58 @@ You can write and test your JCL on the z/OS platform if you wish, but for the la
 
 The work will involve modules zos_job_submit, zos_copy, and zos_fetch from the ibm_zos_core collection.
 
+## Lab 25a BONUS: Concatenate and retrieve data sets using zos_mvs_raw 
 
+Develop a playbook that does the same thing as your solution for Lab 25, but using module zos_mvs_raw to avoid having to write JCL to do the concatenation. 
 
+## Lab 26: Use Ansible to define a VSAM KSDS
 
+Using Ansible documentation, IBM documentation, examples from the slide deck, samples in the course repo, Internet searches, your favorite neighborhood LLM helper, and/or collaboration with your classmates, develop an Ansible playbook that defines a VSAM KSDS cluster and queries the catalog information for it.
+
+## Lab 27: Use Ansible to execute DFSORT/ICEMAN 
+
+Using module zos_mvs_raw, develop an Ansible playbook to execute ICEMAN (DFSORT) with a task that sorts the two input data sets as one (concatenated) and lists the records in descending order by city population. Also remove duplicate records.
+
+Input record format:
+
+01-14 State name
+15-34 City name 
+35-36 State postal abbreviation
+37-43 City population 
+
+Output record format:
+
+01-02 State postal abbreviation 
+03-22 City name 
+23-30 City population 
+
+# Lab 28: Set up data sets for an application developer 
+
+A new software developer has joined your company. She will be working as a software engineer on a team that supports a mainframe-based product. She will need certain data sets created under her z/OS userid:
+
+<userid>.COBOL.SOURCE	
+<userid>.COBOL.COPYLIB	
+<userid>.REXX.SCRIPTS	
+<userid>.DEV.JCL		
+<userid>.QMF.SCRIPTS	
+<userid>.DEV.PROGLIB
+
+All these are PDSE data sets (LIBRARY type). TEST.PROGLIB is a program library containing executables. The others are all source libraries and all contain 80-byte card-image records – same attributes.
+
+Develop an Ansible playbook to create these data sets on the z/OS instance. You will have to use your own userid, as we don't have authorization to create data sets under any other high level qualifier. 
+
+For all except the program library, add a member after allocating the PDSE.
+
+Data Set            Member Name     Contents
+
+COBOL.SOURCE        README          COBOL SOURCE CODE GOES HERE
+COBOL.COPYLIB       README          COBOL COPYBOOKS GO HERE 
+REXX.SCRIPTS        README          REXX SCRIPTS GO HERE 
+QMF.SCRIPTS         README          SQL SCRIPTS FOR DB2 GO HERE 
+DEV.JCL             JOBCARD         (a JOB card with appropriate settings for our environment)
+
+Make good use of Ansible features such as loops and variables, and factor out repetitive tasks, to keep the playbook clean and understandable. That is the main point of the exercise - the technical details are already familiar to you by now.
+
+Note that the older format for library-type data sets, the PDS, is supported for backward compatibility. It's preferable to use the PDSE format for these libraries.
 
 

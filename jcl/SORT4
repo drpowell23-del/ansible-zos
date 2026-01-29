@@ -1,0 +1,23 @@
+//IBMUSERS JOB ,'SORT 4',
+//         CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),
+//         NOTIFY=&SYSUID
+//********************************************************************
+//* Sort example with OUTREC
+//********************************************************************
+//SORT2    EXEC PGM=ICEMAN
+//SYSOUT   DD   SYSOUT=*
+//SORTIN   DD   *
+ALABAMA       HUNTSVILLE          AL
+GEORGIA       ATLANTA             GA
+INDIANA       INDIANAPOLIS        IN
+GEORGIA       COLUMBUS            GA
+NEW JERSEY    JERSEY CITY         NJ
+ALABAMA       MONTGOMERY          AL
+NEW JERSEY    TRENTON             NJ
+INDIANA       SOUTH BEND          IN
+/*
+//SYSIN    DD   *
+  SORT FIELDS=(1,14,CH,A,15,20,CH,D)
+  OUTREC BUILD=(35,2,C' ',15,20,C' DATE: ',DATE3-1)
+/*
+//SORTOUT  DD SYSOUT=*

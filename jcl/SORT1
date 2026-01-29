@@ -1,0 +1,18 @@
+//IBMUSERS JOB ,'SORT 1',
+//         CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),
+//         NOTIFY=&SYSUID
+//********************************************************************
+//* Simple sort example
+//********************************************************************
+//SORT1    EXEC PGM=ICEMAN
+//SYSOUT   DD   SYSOUT=*
+//SORTIN   DD   *
+GEORGIA       ATLANTA
+INDIANA       INDIANAPOLIS
+ALABAMA       MONTGOMERY
+NEW JERSEY    TRENTON
+/*
+//SYSIN    DD   *
+  SORT FIELDS=(1,14,CH,A)
+/*
+//SORTOUT  DD SYSOUT=*

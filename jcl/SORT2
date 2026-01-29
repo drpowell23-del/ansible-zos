@@ -1,0 +1,22 @@
+//IBMUSERS JOB ,'SORT 2',
+//         CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),
+//         NOTIFY=&SYSUID
+//********************************************************************
+//* Sort example with two fields
+//********************************************************************
+//SORT2    EXEC PGM=ICEMAN
+//SYSOUT   DD   SYSOUT=*
+//SORTIN   DD   *
+ALABAMA       HUNTSVILLE
+GEORGIA       ATLANTA
+INDIANA       INDIANAPOLIS
+GEORGIA       COLUMBUS
+NEW JERSEY    JERSEY CITY
+ALABAMA       MONTGOMERY
+NEW JERSEY    TRENTON
+INDIANA       SOUTH BEND
+/*
+//SYSIN    DD   *
+  SORT FIELDS=(1,14,CH,A,15,20,CH,D)
+/*
+//SORTOUT  DD SYSOUT=*
